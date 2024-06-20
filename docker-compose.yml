@@ -7,7 +7,7 @@ services:
   elastic:
     image: elasticsearch:7.17.13
     restart: always
-    environment: 
+    environment:
       discovery.type: single-node
     ports:
       - 9200:9200
@@ -82,13 +82,25 @@ services:
         max-size: "1M"
         max-file: "10"
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+
 volumes:
   html:
     driver: local
     driver_opts:
       type: none
-      device: $PWD/html 
+      device: $PWD/html
       o: bind
   dbdata:
   elastic:
     driver: local
+
