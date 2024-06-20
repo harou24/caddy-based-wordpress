@@ -88,10 +88,15 @@ services:
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: rootpassword
-    ports:
-      - 8080:80
     depends_on:
       - db
+    expose:
+      - "80"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1M"
+        max-file: "10"
 
 volumes:
   html:

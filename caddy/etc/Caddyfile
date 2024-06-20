@@ -47,4 +47,12 @@
 
 }
 
+phpmyadmin.{$SERVER_NAME} {
+    import /etc/{$TLS_MODE}
+    reverse_proxy phpmyadmin:80
+    log {
+        output file /var/log/caddy_phpmyadmin.log
+    }
+}
+
 import /etc/caddyfile_optional.conf
