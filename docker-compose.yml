@@ -50,7 +50,7 @@ services:
         max-file: "10"
 
   wp-fpm:
-    image: wordpress:6-fpm
+    image: wordpress:6.5.4-php8.1-fpm
     restart: always
     links:
       - db
