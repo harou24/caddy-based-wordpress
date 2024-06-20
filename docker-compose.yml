@@ -5,7 +5,7 @@ services:
     restart: always
 
   elastic:
-    image: elasticsearch:7.17.13
+    image: elasticsearch:8.14.1
     restart: always
     environment:
       discovery.type: single-node
